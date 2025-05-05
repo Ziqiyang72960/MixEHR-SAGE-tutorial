@@ -1,0 +1,49 @@
+#!/bin/bash
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=20G      
+#SBATCH --time=1-05:00:00
+#SBATCH --output=%N-%j.out
+#SBATCH --account=def-liyue
+#SBATCH --mail-user=ziqi.yang2@mail.mcgill.ca
+#SBATCH --mail-type=FAIL,END
+#SBATCH --gpus-per-node=1
+echo "Job started at: `date`"
+
+echo "Job ID: $SLURM_JOBID"
+module load python
+#virtualenv --no-download $SLURM_TMPDIR/env
+source ../projects/def-liyue/zyq1213/train_test/bin/activate
+module load python
+#module load tqdm
+#source /home/zyq1213/projects/def-liyue/zyq1213//bin/activate
+pip install torch torchvision --no-index
+#declare -a morethanthousand=(0 1 2 3 4 6 7 8 9 10 11 12 13 14 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 34 35 36 37 38 39 40 41 42 43 45 47 48 49 50 51 52 54 55 56 57 58 59 60 61 62 64 65 66 67 68 70 71 72 74 75 76 78 79 80 81 82 83 84 85 86 87 88 89 90 92 93 94 95 96 97 99 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 123 124 125 127 128 129 131 132 133 135 136 137 138 139 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 187 188 189 190 191 192 193 194 196 197 198 199 201 202 203 204 205 206 207 208 209 210 211 212 216 221 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 240 242 243 245 247 248 250 251 252 254 256 257 258 260 261 262 264 265 268 269 271 272 273 274 275 276 277 278 280 281 282 283 284 286 288 290 291 293 294 295 297 298 299 300 301 302 303 305 310 311 312 313 315 316 317 319 321 322 323 325 326 328 330 331 334 335 336 337 338 339 340 342 343 344 345 347 348 349 350 351 352 353 354 355 356 358 359 361 363 364 365 366 367 368 369 371 374 375 377 378 380 381 384 385 386 388 390 391 392 393 394 397 398 399 401 402 403 404 405 410 411 413 414 415 416 417 419 420 425 426 427 429 430 431 432 433 436 437 438 440 441 444 445 446 447 449 452 453 454 455 457 459 462 463 468 469 471 472 474 477 478 479 480 485 486 489 490 491 492 493 495 496 499 503 504 507 510 511 512 513 514 515 516 517 522 524 527 529 530 531 533 534 537 542 543 545 547 548 549 551 553 554 555 558 559 563 564 566 569 570 571 572 573 574 580 587 591 597 598 600 601 604 607 610 611 614 616 617 618 622 623 625 629 630 632 636 639 640 644 645 646 647 651 652 653 654 655 661 662 667 669 670 672 674 679 681 686 690 692 694 702 708 716 718 722 725 726 727 730 732 734 738 746 747 749 751 752 759 762 763 766 771 772 773 776 778 780 783 787 797 806 808 811 822 826 827 831 842 847 848 853 862 869 876 882 921 924 943 952 970 977 1031 1033 1049 1071 1075)
+#echo "starting reading and training"
+#python extract_phi.py
+#python coherence_plot.py
+#python clustering_plotting.py
+#long_format_df.to_csv("long_format_cadd.csv", index=False)
+#python main.py
+#python get_token_counts.py
+#echo "produce corpus"
+#python corpus.py
+#echo "go to guide_prior"
+#cd guide_prior
+#echo "get document phecode"
+#python get_doc_phecode.py
+#echo "get prior"
+#python get_prior_GMM.py
+#echo "get initial stats"
+#echo "get token counts"
+#python get_token_counts.py
+#echo "run main code"
+#cd ..
+python main.py
+#for i in `seq 0 1502`     
+#do
+#	python training_testing_preprocess.py 318
+#done
+#python read_theta_density_new.py
+#python theta_1502.py
+#python find_significant_phecode.py
+#python data_extract.py
