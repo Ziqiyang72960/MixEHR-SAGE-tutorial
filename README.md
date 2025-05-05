@@ -1,6 +1,6 @@
-# MixEHR-Seed
+# MixEHR-SAGE
 
-MixEHR-Seed is a seed-guided Bayesian topic model that fits large-scale, longitundinal, multi-modal EHR data with thousands of phenotypic topics. 
+MixEHR-SAGE is a seed-guided Bayesian topic model that fits large-scale, longitundinal, multi-modal EHR data with thousands of phenotypic topics. 
 
 In the seed-guidance, each phenotypic topic is represented as two distributions: (1)a seed-topic distribution over only its set of seed words;
 (2) a regular-topic distribution over the entire vocabulary.
@@ -22,47 +22,28 @@ The proababilistic graphical model of MixEHR-S is shown:
 
 This published code is referenced from: 
 
-***Ziyang Song***, Yuanyi Hu Aman Verma, David Buckeridge, and *Yue Li. (2022) Automatic phenotyping by a seed-guided topic model. In Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD ’22), August 14–18, 2022, Washington, DC, USA. ACM, New York, NY, USA, 12 pages. https://doi.org/10.1145/3534678.3542675 (***KDD HealthDay2022 Best Paper award***)
-
 
 
 # Dataset Preparation
 
-We evaluated MixEHR-Seed on the extracted clinical dataset from the PopHR, UKB, and MIMIC-III database. 
+We evaluated MixEHR-SAGE on the extracted clinical dataset from UKB, and MIMIC-III database. 
 
 For these datasets, we organize each data type of EHRs into one single input file (such as ICD codes). Moreover, the temporal information (such as a patient's age group) is listed in a separate file. 
  
-In the path "MixEHR_Seed/data/", we have extracted a toy data from MIMIC-III database including ICD, prescription, CPT, DRG, lab tests and, note events six modalities.
+In the path "MixEHR_SAGE/data/", we have extracted a toy data from UKB database including ICD, ATC medication code, OPCS-4 procedure code three modalities.
 
 - icd_toy_data.csv has 4 columns rows: patient ID, ICD code, PheCode, frequency
 
-                            Headers:SUBJECT_ID,ICD9,PheCode,FREQ
+                            Headers:SUBJECT_ID,ICD10,PheCode,FREQ
 
-- pres_toy_data.csv has 3 columns rows: patient ID, drug code, frequency
-
-                            Headers:SUBJECT_ID,COMPOUND_ID,FREQ
-			    
-- cpt_toy_data.csv has 3 columns rows: patient ID, ICD procedure code, frequency
-
-                            Headers:SUBJECT_ID,ICD9_CODE,FREQ
-
-- drg_toy_data.csv has 3 columns rows: patient ID, drug code, frequency
+- atc_toy_data.csv has 3 columns rows: patient ID, drug code, frequency
 
                             Headers:SUBJECT_ID,COMPOUND_ID,FREQ
 			    
-- lab_toy_data.csv has 4 columns rows: patient ID, lab test index, lab test name, frequency
+- opcs_toy_data.csv has 3 columns rows: patient ID, OPCS-4 procedure code, frequency
 
-                            Headers:SUBJECT_ID	ITEMID	LABEL	FREQ
-			   
-- note_toy_data.csv has 3 columns: patient ID, word , frequency
-
-                            Headers:SUBJECT_ID,TERM,FREQ
-
-If open temporal inference, user have to add a separate time.csv that divides each patient's records into multiple documents. Morewore, we have to add an extra column for each modality's data file. 
-
-- time.csv has 3 columns (optional): patient ID, certain age group, the document id 
-
-                            Headers:SUBJECT_ID,AGE,DOC_ID     
+                            Headers:SUBJECT_ID,OPCS4_CODE,FREQ
+  
               
 # Code Description
 
