@@ -1,7 +1,7 @@
 import logging
 import argparse
 import torch
-from MixEHR_Seed import MixEHR_Seed
+from MixEHR_Sage import MixEHR_Sage
 from corpus import Corpus
 
 logger = logging.getLogger("MixEHR-Seed training processing")
