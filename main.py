@@ -22,7 +22,7 @@ def run(args):
     print("V and K are", seeds_topic_matrix.shape) # torch.Size([V, K])
     corpus = Corpus.read_corpus_from_directory(args.corpus)
     print("trained modalities include", corpus.modalities)
-    model = MixEHR_Seed(corpus, seeds_topic_matrix, corpus.modalities, guided_modality=0, stochastic_VI=True, batch_size=args.batch_size, out=args.output)
+    model = MixEHR_Sage(corpus, seeds_topic_matrix, corpus.modalities, guided_modality=0, stochastic_VI=True, batch_size=args.batch_size, out=args.output)
     model = model.to(device)
     logger.info('''
     #     ======= Parameters =======
