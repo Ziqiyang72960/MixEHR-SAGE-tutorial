@@ -14,7 +14,7 @@ import os
 mini_val = 1e-6
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-class MixEHR_Seed(nn.Module):
+class MixEHR_Sage(nn.Module):
     def __init__(self, corpus, seeds_topic_matrix, modality_list, guided_modality=0, stochastic_VI=True, elbo_modality=0, batch_size=1000, out='./store/'):
         """
         Arguments:
@@ -23,7 +23,7 @@ class MixEHR_Seed(nn.Module):
             batch_size: batch size for a minibatch
             out: output path
         """
-        super(MixEHR_Seed, self).__init__()
+        super(MixEHR_Sage, self).__init__()
         self.modalities = modality_list # name of modalites
         self.modaltiy_num = len(modality_list) # number of modaltiy M
         self.guided_modality = guided_modality # the modality defined as the guided modality
